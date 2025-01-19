@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="急需資金紓困？OK忠訓國際提供24小時快速審核，最快當天撥款">
+  <title>急用借款 | OK忠訓國際</title>
+  <style>
+    :root{--primary:#ff4444;--secondary:#ffd700;--dark:#222;--white:#fff;--bg:#000}
+    body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--white);line-height:1.5}
+    .timer{font-size:2rem;font-weight:700;color:var(--secondary);animation:pulse 2s infinite}
+    @keyframes pulse{0%{opacity:1}50%{opacity:.5}100%{opacity:1}}
+    .cta{background:var(--secondary);color:var(--dark);padding:1em 2em;font-size:1.3rem;text-decoration:none;border-radius:8px;display:inline-block;margin:1rem 0;font-weight:700;text-align:center;width:80%;max-width:300px;animation:shake 5s infinite;box-shadow:0 0 20px rgba(255,215,0,.3)}
+    @keyframes shake{0%,100%{transform:translateX(0)}2%,6%{transform:translateX(-2px)}4%,8%{transform:translateX(2px)}}
+    .container{width:min(90%,800px);margin:auto;text-align:center;padding:1rem}
+    .urgent{color:var(--primary);font-size:clamp(1.5rem,5vw,2.5rem);margin:2rem 0;text-shadow:0 0 10px rgba(255,68,68,.5)}
+    .feature{background:rgba(255,255,255,.1);padding:1rem;border-radius:8px;margin:1rem 0}
+    .highlight{color:var(--secondary);font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="urgent">⚡️ 急需資金週轉？</h1>
+    <div class="timer">限時優惠倒數：23:59:59</div>
+    <h2 style="color:var(--secondary)">最快當天撥款！</h2>
+    
+    <div class="feature">
+      <h3>✅ 急用可當天撥款</h3>
+      <p>最快24小時內完成審核</p>
+    </div>
+    
+    <div class="feature">
+      <h3>✅ 手續簡便</h3>
+      <p>線上申請、免出門</p>
+    </div>
+    
+    <div class="feature">
+      <h3>✅ 專人服務</h3>
+      <p>快速為您核定額度</p>
+    </div>
+
+    <p style="font-size:1.2rem">
+      <span class="highlight">✨ 限時優惠方案 ✨</span><br>
+      手續費最低只要 <span class="highlight">0.3%</span> 起
+    </p>
+
+    <a href="#" class="cta">立即申請 👉</a>
+    
+    <p style="font-size:.8rem;opacity:.8">
+      政府立案 | 合法經營 | 保密更有保障
+    </p>
+  </div>
+
+  <script>
+    // 倒數計時器
+    function updateTimer() {
+      const now = new Date();
+      const end = new Date();
+      end.setHours(23,59,59);
+      let diff = end - now;
+      if (diff < 0) diff += 86400000;
+      const hours = Math.floor(diff/3600000).toString().padStart(2,'0');
+      const minutes = Math.floor((diff%3600000)/60000).toString().padStart(2,'0');
+      const seconds = Math.floor((diff%60000)/1000).toString().padStart(2,'0');
+      document.querySelector('.timer').textContent = `限時優惠倒數：${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+</body>
+</html>
+一小時前
