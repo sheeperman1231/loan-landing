@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快速認證 | 忠訓貸款</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft JhengHei', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            line-height: 1.6;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 180px;
+            margin: 0 auto 20px;
+        }
+
+        h1 {
+            color: #003366;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .question {
+            margin: 25px 0;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .option-btn {
+            padding: 12px 20px;
+            border: 2px solid #004d99;
+            border-radius: 5px;
+            background: white;
+            color: #004d99;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option-btn:hover {
+            background: #e6f0ff;
+        }
+
+        .error-message {
+            color: #ff4444;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .note {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="data:image/svg+xml,%3Csvg width='180' height='45' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='none'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%23003366'%3E忠訓貸款%3C/text%3E%3C/svg%3E" alt="忠訓貸款" class="logo">
+            
+            <h1>快速認證</h1>
+            <p>請回答以下問題，以確認您是否符合申請資格</p>
+
+            <div id="question1" class="question">
+                <p>您是否年滿30歲？</p>
+                <div class="options">
+                    <button class="option-btn" onclick="handleAnswer(1, true)">是</button>
+                    <button class="option-btn" onclick="handleAnswer(1, false)">否</button>
+                </div>
+            </div>
+
+            <div id="question2" class="question" style="display: none;">
+                <p>您是否有固定收入來源？</p>
+                <div class="options">
+                    <button class="option-btn" onclick="handleAnswer(2, true)">是</button>
+                    <button class="option-btn" onclick="handleAnswer(2, false)">否</button>
+                </div>
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                很抱歉，您目前不符合申請資格。<br>
+                建議您可以致電客服了解其他方案。
+            </div>
+
+            <p class="note">
+                ※ 本認證僅供初步評估使用，實際核貸條件依公司審核為準
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function handleAnswer(question, isYes) {
+            const errorMsg = document.getElementById('errorMessage');
+            const question2 = document.getElementById('question2');
+            
+            // 重置錯誤訊息
+            errorMsg.style.display = 'none';
+            
+            if (question === 1) {
+                if (isYes) {
+                    // 顯示第二個問題
+                    question2.style.display = 'block';
+                } else {
+                    // 顯示不符合資格訊息
+                    errorMsg.style.display = 'block';
+                }
+            } else if (question === 2) {
+                if (isYes) {
+                    // 符合資格，加入 UTM 參數後轉址
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const utmSource = urlParams.get('utm_source');
+                    const utmMedium = urlParams.get('utm_medium');
+                    const utmCampaign = urlParams.get('utm_campaign');
+                    
+                    const targetUrl = `https://www.example.com/loan/apply?` +
+                        `qualified=true&` +
+                        `utm_source=${utmSource || 'quick_filter'}&` +
+                        `utm_medium=${utmMedium || 'verification'}&` +
+                        `utm_campaign=${utmCampaign || 'loan_2024'}`;
+                    
+                    window.location.href = targetUrl;
+                } else {
+                    // 顯示不符合資格訊息
+                    errorMsg.style.display = 'block';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
