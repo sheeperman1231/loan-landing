@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快速貸款解決方案</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .header, .urgency, .cta, .footer, .social-proof {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #007BFF;
+            font-size: 2rem;
+        }
+        .header p, .urgency p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .urgency {
+            background-color: #ffeeba;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+        }
+        .urgency p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d9534f;
+        }
+        .timer {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #d9534f;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 2px solid #d9534f;
+            animation: pulse 1s infinite;
+        }
+        .promotion {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007BFF;
+            margin-top: 15px;
+        }
+        .disclaimer {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .verification label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1rem;
+            color: #333;
+        }
+        .verification input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .verification button {
+            background-color: #28a745;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        .verification button:hover {
+            background-color: #218838;
+        }
+        .footer {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        .privacy-notice {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .disabled {
+            background-color: #ccc !important;
+            cursor: not-allowed !important;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            }
+        }
+    </style>
+    <script>
+        // 倒數計時器
+        function startTimer(duration, display) {
+            let timer = duration;
+            const interval = setInterval(() => {
+                const minutes = String(Math.floor(timer / 60)).padStart(2, '0');
+                const seconds = String(timer % 60).padStart(2, '0');
+                display.textContent = `${minutes}:${seconds}`;
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    alert("限時優惠已結束！");
+                    disableVerification();
+                }
+            }, 1000);
+        }
+
+        // 禁用驗證按鈕
+        function disableVerification() {
+            const verifyButton = document.querySelector('.verification button');
+            verifyButton.disabled = true;
+            verifyButton.classList.add('disabled');
+        }
+
+        // 驗證表單
+        function verifyForm() {
+            const age = parseInt(document.getElementById("age").value, 10);
+            const job = document.getElementById("job").value.trim().toLowerCase();
+
+            if (age >= 25 && job === "yes") {
+                alert("恭喜！您符合條件，請繼續申請！");
+                window.location.href = "https://o2qvg.bemobtrcks.com/click";
+            } else {
+                alert("抱歉，您不符合申請條件。");
+            }
+        }
+
+        // 初始化倒數計時器
+        window.addEventListener('DOMContentLoaded', () => {
+            const countdownMinutes = 5; // 5分鐘倒數
+            const display = document.querySelector('.timer');
+            if (display) {
+                startTimer(countdownMinutes * 60, display);
+            } else {
+                console.error("Timer element not found!");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>快速貸款，立即解決您的財務需求！</h1>
+            <p>無需抵押，信用不佳也能輕鬆申請！</p>
+        </div>
+
+        <!-- Urgency Section -->
+        <div class="urgency">
+            <p>⚠️ 限時優惠：今天申請可享最低 <strong>1.88%</strong> 年利率！</p>
+            <p>名額有限，優惠倒數：</p>
+            <p class="timer">05:00</p>
+            <p class="promotion">歲末專案：貸款50萬，月付6580起！</p>
+        </div>
+
+        <!-- Disclaimer Section -->
+        <div class="disclaimer">
+            <p><strong>注意事項：</strong></p>
+            <ul>
+                <li>1.88% 為年利率 (APR)，僅適用於信用評分良好且符合條件之申請人。</li>
+                <li>實際利率將依個人信用狀況、貸款金額及還款條件而定。</li>
+                <li>貸款金額與月付金額僅供參考，詳情請洽客服了解完整條件。</li>
+                <li>貸款可能涉及額外費用，請詳閱契約條款。</li>
+            </ul>
+        </div>
+
+        <!-- Verification Section -->
+        <div class="verification">
+            <label for="age">請輸入您的年齡：</label>
+            <input type="number" id="age" placeholder="例如：25">
+            <label for="job">您是否有穩定的工作？（輸入 Yes 或 No）</label>
+            <input type="text" id="job" placeholder="例如：Yes">
+            <button onclick="verifyForm()">確認並繼續</button>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>我們承諾保護您的隱私，所有資料將僅用於貸款申請相關事宜。</p>
+        </div>
+    </div>
+</body>
+</html>
